@@ -1,8 +1,9 @@
-plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-    id 'maven-publish'
-}
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'maven-publish'
+
+group 'testlib'
+version='1.0.18'
 
 android {
     compileSdk 30
@@ -12,7 +13,7 @@ android {
         minSdk 27
         targetSdk 30
         versionCode 8
-        versionName "1.0.17"
+        versionName "1.0.18"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -43,35 +44,21 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
 
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            release(MavenPublication) {
-//                from components.release
-//                groupId = 'com.inquisitor.testlib'
-//                artifactId = 'my_test_lib_1_release'
-//                version = '1.0.17'
-//            }
-//
-//            debug(MavenPublication) {
-//                from components.debug
-//                groupId = 'com.inquisitor.testlib'
-//                artifactId = 'my_test_lib_1_debug'
-//                version = '1.0.17'
-//            }
-//        }
-//    }
-//
-//    repositories {
-//        mavenLocal()
-//    }
-//}
-
-project.afterEvaluate {
+afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
                 from components.release
+                groupId = 'com.inquisitor.testlib'
+                artifactId = 'my_test_lib_1_release'
+                version = '1.0.18'
+            }
+
+            debug(MavenPublication) {
+                from components.debug
+                groupId = 'com.inquisitor.testlib'
+                artifactId = 'my_test_lib_1_debug'
+                version = '1.0.18'
             }
         }
     }
@@ -80,3 +67,17 @@ project.afterEvaluate {
         mavenLocal()
     }
 }
+
+//project.afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                from components.release
+//            }
+//        }
+//    }
+//
+//    repositories {
+//        mavenLocal()
+//    }
+//}
