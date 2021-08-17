@@ -12,7 +12,7 @@ android {
         minSdk 27
         targetSdk 30
         versionCode 8
-        versionName "1.0.15"
+        versionName "1.0.16"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -50,7 +50,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.inquisitor.testlib'
                 artifactId = 'my_test_lib_1_release'
-                version = '1.0.15'
+                version = '1.0.16'
             }
 //
 //            debug(MavenPublication) {
@@ -60,5 +60,9 @@ afterEvaluate {
 //                version = '1.0.15'
 //            }
         }
+    }
+
+    repositories {
+        mavenLocal()
     }
 }
